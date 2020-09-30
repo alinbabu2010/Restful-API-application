@@ -12,7 +12,7 @@ def countries_list(request):
         countries = Countries.objects.all()
         name = request.GET.get('name', None)
         if name is not None:
-            countries = countries.filter(name_icontaiins=name)
+            countries = countries.filter(name=name)
         countries_serializer = CountriesSerializer(countries, many=True)
         return JsonResponse(countries_serializer.data, safe=False)
         
